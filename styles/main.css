@@ -1,0 +1,24 @@
+body,
+section,
+#jumbotron {
+  background-color: #F4F6FA;
+  color: #000;
+}
+
+#about img {
+  box-shadow: 11px 11px 22px #e8e8e8,
+    -11px -11px 22px #ffffff;
+}
+
+.blog-link {
+  font-style: italic;
+}
+
+#skill img {
+  width: 100px;
+  transition: transform 0.3s ease;
+}
+
+#skill img:hover {
+  transform: scale(1.2);
+}

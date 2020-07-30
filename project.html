@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ben Thomson Portfolio</title>
+  <link rel="icon" href="images/Ben.png">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/project.css">
+</head>
+
+<body data-spy="scroll" data-target="#navbar-scroll">
+  <nav id="navbar-scroll" class="navbar navbar-expand-lg navbar-light bg-light fixed-top fixed-top">
+    <a class="navbar-brand font-weight-bold" href="index.html">Ben Thomson</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="nav nav-pills ml-auto">
+        <li class="nav-item dropdown mr-3">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+            aria-expanded="false">Front-end</a>
+          <div class="dropdown-menu dropdown-menu-left dropdown-menu-lg-right">
+            <a class="dropdown-item" href="#landing-page">Landing Page</a>
+            <a class="dropdown-item" href="#website">Website</a>
+            <a class="dropdown-item" href="#animation">Animation</a>
+            <a class="dropdown-item" href="#web-app">Web App</a>
+            <a class="dropdown-item" href="#game">Game</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+            aria-expanded="false">DataVis</a>
+          <div class="dropdown-menu  dropdown-menu-left dropdown-menu-lg-right">
+            <a class="dropdown-item" href="#echarts">ECharts</a>
+            <a class="dropdown-item" href="#d3js">D3.js</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="project" class="container">
+    <section id="front-end">
+      <h1 class="mb-5"><span>Front-end Project</span></h1>
+      <h2 id="landing-page" class="text-secondary">Landing Page</h2>
+      <div class="row row-cols-1 row-cols-md-2">
+        <div class="col mt-4">
+          <div class="card h-100">
+            <div class="bg-image" style="background-image: url('images/apple-page.png');"></div>
+            <div class="card-body">
+              <h5 class="card-title">Apple Home Page</h5>
+              <p class="card-text">Just Using HTML and CSS build a clone of Apple Home page.</p>
+              <a class="btn btn-primary" href="https://benbinbin.github.io/Apple-Page/" target="_blank"
+                role="button">Live Demo</a>
+              <a class="btn btn-outline-primary" href="https://github.com/Benbinbin/Apple-Page" target="_blank"
+                role="button">Source</a>
+            </div>
+            <div class="card-footer text-muted">
+              <span class="badge badge-pill" style="background-color: #E65100;color: #fff">HTML</span>
+              <span class="badge badge-pill" style="background-color: #007BFF;color: #fff">CSS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 id="website" class="text-secondary mt-5">Website</h2>
+      <div class="row row-cols-1 row-cols-md-2">
+        <div class="col mt-4">
+          <div class="card h-100">
+            <div class="bg-image" style="background-image: url('images/digita-market.png');"></div>
+            <div class="card-body">
+              <h5 class="card-title">Digital Market</h5>
+              <p class="card-text">This is an e-commerce shopping website template, power by Bootstrap.</p>
+              <a class="btn btn-primary" href="https://benbinbin.github.io/DigitalMarket/" target="_blank"
+                role="button">Live Demo</a>
+              <a class="btn btn-outline-primary" href="https://github.com/Benbinbin/DigitalMarket" target="_blank"
+                role="button">Source</a>
+            </div>
+            <div class="card-footer text-muted">
+              <span class="badge badge-pill" style="background-color: #E65100;color: #fff">HTML</span>
+              <span class="badge badge-pill" style="background-color: #7952B3;color: #fff">Bootstrap</span>
+              <span class="badge badge-pill" style="background-color: #78CFF5;color: #fff">jQuery</span>
+            </div>
+          </div>
+        </div>
+        <div class="col mt-4">
+          <div class="card h-100">
+            <div class="bg-image" style="background-image: url('images/sweetaste.png');"></div>
+            <div class="card-body">
+              <h5 class="card-title">Sweetaste</h5>
+              <p class="card-text">This is an dessert shop website, power by Bootstrap.</p>
+              <a class="btn btn-primary" href="https://benbinbin.github.io/Dessert-shop/" target="_blank"
+                role="button">Live Demo</a>
+              <a class="btn btn-outline-primary" href="https://github.com/Benbinbin/Dessert-shop" target="_blank"
+                role="button">Source</a>
+            </div>
+            <div class="card-footer text-muted">
+              <span class="badge badge-pill" style="background-color: #E65100;color: #fff">HTML</span>
+              <span class="badge badge-pill" style="background-color: #F06292;color: #fff">SCSS</span>
+              <span class="badge badge-pill" style="background-color: #7952B3;color: #fff">Bootstrap</span>
+              <span class="badge badge-pill" style="background-color: #78CFF5;color: #fff">jQuery</span>
+            </div>
+          </div>
+        </div>
+        <div class="col mt-4">
+          <div class="card h-100">
+            <div class="bg-image" style="background-image: url('images/dashboard-vue.png');"></div>
+            <div class="card-body">
+              <h5 class="card-title">Dashboard</h5>
+              <p class="card-text">This is an dashboard power by Vue.js. It provide the nicely dark mode.</p>
+              <a class="btn btn-primary" href="https://benbinbin.github.io/dashboard-vue" target="_blank"
+                role="button">Live Demo</a>
+              <a class="btn btn-outline-primary" href="https://github.com/Benbinbin/dashboard-vue" target="_blank"
+                role="button">Source</a>
+            </div>
+            <div class="card-footer text-muted">
+              <span class="badge badge-pill" style="background-color: #E65100;color: #fff">HTML</span>
+              <span class="badge badge-pill" style="background-color: #F06292;color: #fff">SCSS</span>
+              <span class="badge badge-pill" style="background-color: #81C784;color: #fff">Vue.js</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 id="web-app" class="text-secondary mt-5">Web App</h2>
+      <div class="row row-cols-1 row-cols-md-2">
+        <div class="col mt-4">
+          <div class="card h-100">
+            <div class="bg-image" style="background-image: url('images/todos-backbone-js.jpg');"></div>
+            <div class="card-body">
+              <h5 class="card-title">Todo App</h5>
+              <p class="card-text">A simple todo app reference <a href="http://todomvc.com/" target="_blank">TodoMVC</a>
+                code template. Power by <a href="http://todomvc.com/examples/backbone" target="_blank">Backbone.js</a>
+                framework.</p>
+              <a class="btn btn-primary" href="https://benbinbin.github.io/ud989-todo-app/" target="_blank"
+                role="button">Live Demo</a>
+              <a class="btn btn-outline-primary" href="https://github.com/Benbinbin/ud989-todo-app" target="_blank"
+                role="button">Source</a>
+            </div>
+            <div class="card-footer text-muted">
+              <span class="badge badge-pill" style="background-color: #0071B5;color: #fff">Backbone.js</span>
+            </div>
+          </div>
+        </div>
+        <div class="col mt-4">
+          <div class="card h-100">
+            <div class="bg-image" style="background-image: url('images/todos-vue-js.png');"></div>
+            <div class="card-body">
+              <h5 class="card-title">Todo App</h5>
+              <p class="card-text">Todo app power by the progressive JavaScript Framework <a
+                  href="https://vuejs.org/index.html">Vue.js</a>.</p>
+              <a class="btn btn-primary" href="https://benbinbin.github.io/Todo-Demo-Vue/" target="_blank"
+                role="button">Live Demo</a>
+              <a class="btn btn-outline-primary" href="https://github.com/Benbinbin/Todo-Demo-Vue" target="_blank"
+                role="button">Source</a>
+            </div>
+            <div class="card-footer text-muted">
+              <span class="badge badge-pill" style="background-color: #7952B3;color: #fff">Bootstrap</span>
+              <span class="badge badge-pill" style="background-color: #81C784;color: #fff">Vue.js</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 id="game" class="text-secondary mt-5">Game</h2>
+      <div class="row row-cols-1 row-cols-md-2">
+        <div class="col mt-4">
+          <div class="card h-100">
+            <div class="bg-image" style="background-image: url('images/frogger.png');"></div>
+            <div class="card-body">
+              <h5 class="card-title">Frogger Game</h5>
+              <p class="card-text">Frogger is a classic arcade game, I "clone" it just use JavaScript by referring to a
+                 <a href="https://github.com/udacity/frontend-nanodegree-arcade-game" target="_blank">Udacity project</a>
+                code template.</p>
+              <a class="btn btn-primary" href="https://benbinbin.github.io/frontend-nanodegree-arcade-game/"
+                target="_blank" role="button">Live
+                Demo</a>
+              <a class="btn btn-outline-primary" href="https://github.com/Benbinbin/frontend-nanodegree-arcade-game"
+                target="_blank" role="button">Source</a>
+            </div>
+            <div class="card-footer text-muted">
+              <span class="badge badge-pill" style="background-color: #FFD600;color: #fff">JavaScript</span>
+            </div>
+          </div>
+        </div>
+        <div class="col mt-4">
+          <div class="card h-100">
+            <div class="bg-image" style="background-image: url('images/matching-game.png');"></div>
+            <div class="card-body">
+              <h5 class="card-title">Matching Game</h5>
+              <p class="card-text">This project builds a browser-based card matching game, also called Concentration) by referring to a
+              <a href="https://github.com/udacity/fend-project-memory-game" target="_blank">Udacity project</a>
+              code template.</p>
+              <a class="btn btn-primary" href="https://benbinbin.github.io/memory-game/" target="_blank"
+                role="button">Live
+                Demo</a>
+              <a class="btn btn-outline-primary" href="https://github.com/Benbinbin/memory-game" target="_blank"
+                role="button">Source</a>
+            </div>
+            <div class="card-footer text-muted">
+              <span class="badge badge-pill" style="background-color: #FFD600;color: #fff">JavaScript</span>
+              <span class="badge badge-pill" style="background-color: #007BFF;color: #fff">Animate.css</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
