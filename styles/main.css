@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body,
 section,
 #jumbotron {
@@ -21,4 +25,12 @@ section,
 
 #skill img:hover {
   transform: scale(1.2);
+}
+
+footer {
+  background-color: #FFFFFF;
+}
+
+footer img {
+  width: 60px;
 }
