@@ -31,6 +31,14 @@ footer {
   background-color: #FFFFFF;
 }
 
+footer a {
+  color: #000;
+}
+
+footer a:hover {
+  text-decoration: none;
+}
+
 footer img {
   width: 60px;
 }
