@@ -16,15 +16,26 @@ section,
 
 .blog-link {
   font-style: italic;
+  text-decoration: none;
 }
 
-#skill img {
-  width: 30px;
-  transition: transform 0.3s ease;
+.card {
+  transition: box-shadow 0.5s ease;
+  border: 15px solid #F8F9FA
 }
-
-#skill img:hover {
-  transform: scale(1.2);
+.card:hover {
+  box-shadow: 3px 0px 30px 0px rgba(0, 0, 0, 0.3);
+}
+.card .bg-image {
+  width: 100%;
+  height: 300px;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid #D8D8D8;
+}
+.card a {
+  text-decoration: none;
 }
 
 footer {
@@ -33,6 +44,7 @@ footer {
 
 footer a {
   color: #000;
+  text-decoration: none;
 }
 
 footer a:hover {
@@ -42,3 +54,4 @@ footer a:hover {
 footer img {
   width: 30px;
 }
+

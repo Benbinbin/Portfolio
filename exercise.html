@@ -6,496 +6,253 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ben Thomson Portfolio</title>
   <link rel="icon" href="images/Ben.png">
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="styles/project.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles/exercise.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js"></script>
 </head>
 
-<body data-spy="scroll" data-target="#navbar-scroll">
-  <nav id="navbar-scroll" class="navbar navbar-expand-lg navbar-light bg-light fixed-top fixed-top">
-    <a class="navbar-brand font-weight-bold" href="index.html">Ben Thomson</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand font-weight-bold" href="index.html">Ben Thomson</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item mr-3">
+            <a class="nav-link text-dark" href="#front-end">Front-end</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="#data-vis">Data Vis</a>
+          </li>
+        </ul>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="nav nav-pills ml-auto">
-        <li class="nav-item dropdown mr-3">
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-            aria-expanded="false">Front-end</a>
-          <div class="dropdown-menu dropdown-menu-left dropdown-menu-lg-right">
-            <a class="dropdown-item" href="#web-page">Web Page</a>
-            <a class="dropdown-item" href="#website">Website</a>
-            <a class="dropdown-item" href="#animation">Animation</a>
-            <a class="dropdown-item" href="#web-app">Web App</a>
-            <a class="dropdown-item" href="#extensions">Browser Extensions</a>
-            <a class="dropdown-item" href="#game">Game</a>
-          </div>
-        </li>
-
-        <li class="nav-item dropdown mr-3">
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-            aria-expanded="false">DataVis</a>
-          <div class="dropdown-menu  dropdown-menu-left dropdown-menu-lg-right">
-            <a class="dropdown-item" href="#echarts">ECharts</a>
-            <a class="dropdown-item" href="#d3js">D3.js</a>
-          </div>
-        </li>
-      </ul>
+      </div>
     </div>
   </nav>
 
-  <div id="project" class="container pb-5">
-    <section id="front-end">
-      <h1 class="mb-5"><span>Front-end Project</span></h1>
-      <h2 id="web-page" class="text-secondary">Web Page</h2>
-      <div class="row row-cols-1 row-cols-md-2">
-        <div class="col mt-4">
+  <div id="main" class="container my-5">
+    <section v-for="item in contents" :id="item.type">
+      <h1 class="my-5"><span>{{ item.type }}</span></h1>
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col" v-for="exercise in item.exercises">
           <div class="card h-100">
-            <div class="bg-image" style="background-image: url('images/apple-page.png');"></div>
-            <div class="card-body">
-              <h5 class="card-title">Apple Home Page</h5>
-              <p class="card-text">Just Using HTML and CSS build a clone of Apple Home page.</p>
-              <a class="btn btn-primary" href="https://benbinbin.github.io/Apple-Page/" target="_blank"
-                role="button">Live Demo</a>
-              <a class="btn btn-outline-primary" href="https://github.com/Benbinbin/Apple-Page" target="_blank"
-                role="button">Source</a>
+            <div class="card-header">
+              <span class="fw-bold">{{ exercise.name }}</span>
             </div>
-            <div class="card-footer text-muted">
-              <span class="badge badge-pill" style="background-color: #E65100;color: #fff">HTML</span>
-              <span class="badge badge-pill" style="background-color: #007BFF;color: #fff">CSS</span>
+            <div class="card-body d-flex flex-column p-0">
+              <p class="card-text mb-auto p-3">{{ exercise.description }}</p>
+              <div class="p-3 button">
+                <button type="button" class="btn btn-outline-primary btn-sm"><a :href="exercise.demo"
+                    target="_blank">Demo</a></button>
+                <button type="button" class="btn btn-outline-primary btn-sm"><a :href="exercise.source"
+                    target="_blank">Code</a></button>
+              </div>
+              <div class="cover"></div>
             </div>
-          </div>
-        </div>
-        <div class="col mt-4">
-          <div class="card h-100">
-            <div class="bg-image" style="background-image: url('images/github-tailwind.png');"></div>
-            <div class="card-body">
-              <h5 class="card-title">Github Page</h5>
-              <p class="card-text">Using HTML and Tailwind build a clone of Github web page.</p>
-              <a class="btn btn-primary" href="https://benbinbin.github.io/github-tailwind/" target="_blank"
-                role="button">Live Demo</a>
-              <a class="btn btn-outline-primary" href="https://github.com/Benbinbin/github-tailwind" target="_blank"
-                role="button">Source</a>
-            </div>
-            <div class="card-footer text-muted">
-              <span class="badge badge-pill" style="background-color: #E65100;color: #fff">HTML</span>
-              <span class="badge badge-pill" style="background-color: #19B6BA;color: #fff">Tailwind</span>
-            </div>
-          </div>
-        </div>
-        <div class="col mt-4">
-          <div class="card h-100">
-            <div class="bg-image" style="background-image: url('images/food-tailwind.png');"></div>
-            <div class="card-body">
-              <h5 class="card-title">Food Recipes</h5>
-              <p class="card-text">Using HTML and Tailwind build a responsive web page.</p>
-              <a class="btn btn-primary" href="https://benbinbin.github.io/Food-Tailwind/" target="_blank"
-                role="button">Live Demo</a>
-              <a class="btn btn-outline-primary" href="https://github.com/Benbinbin/Food-Tailwind" target="_blank"
-                role="button">Source</a>
-            </div>
-            <div class="card-footer text-muted">
-              <span class="badge badge-pill" style="background-color: #E65100;color: #fff">HTML</span>
-              <span class="badge badge-pill" style="background-color: #19B6BA;color: #fff">Tailwind</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <h2 id="website" class="text-secondary mt-5">Website</h2>
-      <div class="row row-cols-1 row-cols-md-2">
-        <div class="col mt-4">
-          <div class="card h-100">
-            <div class="bg-image" style="background-image: url('images/design-blog-original.png');"></div>
-            <div class="card-body">
-              <h5 class="card-title">Design Blog</h5>
-              <p class="card-text">Use Gulp and markdown-it to compile markdown files to blog posts.</p>
-              <a class="btn btn-primary" href="http://binbindesign.gitee.io/" target="_blank" role="button">Live
-                Demo</a>
-              <a class="btn btn-outline-primary" href="https://gitee.com/binbindesign/binbindesign" target="_blank"
-                role="button">Source</a>
-            </div>
-            <div class="card-footer text-muted">
-              <span class="badge badge-pill" style="background-color: #F06292;color: #fff">SCSS</span>
-              <span class="badge badge-pill" style="background-color: #E74C3C;color: #fff">Gulp</span>
-            </div>
-          </div>
-        </div>
-        <div class="col mt-4">
-          <div class="card h-100">
-            <div class="bg-image" style="background-image: url('images/digita-market.png');"></div>
-            <div class="card-body">
-              <h5 class="card-title">Digital Market</h5>
-              <p class="card-text">This is an e-commerce shopping website template, power by Bootstrap.</p>
-              <a class="btn btn-primary" href="https://benbinbin.github.io/DigitalMarket/" target="_blank"
-                role="button">Live Demo</a>
-              <a class="btn btn-outline-primary" href="https://github.com/Benbinbin/DigitalMarket" target="_blank"
-                role="button">Source</a>
-            </div>
-            <div class="card-footer text-muted">
-              <span class="badge badge-pill" style="background-color: #E65100;color: #fff">HTML</span>
-              <span class="badge badge-pill" style="background-color: #7952B3;color: #fff">Bootstrap</span>
-              <span class="badge badge-pill" style="background-color: #78CFF5;color: #fff">jQuery</span>
-            </div>
-          </div>
-        </div>
-        <div class="col mt-4">
-          <div class="card h-100">
-            <div class="bg-image" style="background-image: url('images/sweetaste.png');"></div>
-            <div class="card-body">
-              <h5 class="card-title">Sweetaste</h5>
-              <p class="card-text">This is an dessert shop website, power by Bootstrap.</p>
-              <a class="btn btn-primary" href="https://benbinbin.github.io/Dessert-shop/" target="_blank"
-                role="button">Live Demo</a>
-              <a class="btn btn-outline-primary" href="https://github.com/Benbinbin/Dessert-shop" target="_blank"
-                role="button">Source</a>
-            </div>
-            <div class="card-footer text-muted">
-              <span class="badge badge-pill" style="background-color: #E65100;color: #fff">HTML</span>
-              <span class="badge badge-pill" style="background-color: #F06292;color: #fff">SCSS</span>
-              <span class="badge badge-pill" style="background-color: #7952B3;color: #fff">Bootstrap</span>
-              <span class="badge badge-pill" style="background-color: #78CFF5;color: #fff">jQuery</span>
-            </div>
-          </div>
-        </div>
-        <div class="col mt-4">
-          <div class="card h-100">
-            <div class="bg-image" style="background-image: url('images/dashboard-vue.png');"></div>
-            <div class="card-body">
-              <h5 class="card-title">Dashboard</h5>
-              <p class="card-text">This is an dashboard power by Vue.js. It provide the nicely dark mode.</p>
-              <a class="btn btn-primary" href="https://benbinbin.github.io/dashboard-vue" target="_blank"
-                role="button">Live Demo</a>
-              <a class="btn btn-outline-primary" href="https://github.com/Benbinbin/dashboard-vue" target="_blank"
-                role="button">Source</a>
-            </div>
-            <div class="card-footer text-muted">
-              <span class="badge badge-pill" style="background-color: #E65100;color: #fff">HTML</span>
-              <span class="badge badge-pill" style="background-color: #F06292;color: #fff">SCSS</span>
-              <span class="badge badge-pill" style="background-color: #81C784;color: #fff">Vue.js</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <h2 id="web-app" class="text-secondary mt-5">Web App</h2>
-      <div class="row row-cols-1 row-cols-md-2">
-        <div class="col mt-4">
-          <div class="card h-100">
-            <div class="bg-image" style="background-image: url('images/city-walker-original.png');"></div>
-            <div class="card-body">
-              <h5 class="card-title">City Walker</h5>
-              <p class="card-text">Use Element UI and Vue build this Web App.</p>
-              <a class="btn btn-primary" href="https://benbinbin.gitee.io/city-walker/#/" target="_blank"
-                role="button">Live Demo</a>
-              <a class="btn btn-outline-primary" href="https://github.com/Benbinbin/city-walker" target="_blank"
-                role="button">Source</a>
-            </div>
-            <div class="card-footer text-muted">
-              <span class="badge badge-pill" style="background-color: #409EFF;color: #fff">Element UI</span>
-              <span class="badge badge-pill" style="background-color: #81C784;color: #fff">Vue</span>
-            </div>
-          </div>
-        </div>
-        <div class="col mt-4">
-          <div class="card h-100">
-            <div class="bg-image" style="background-image: url('images/todos-backbone-js.jpg');"></div>
-            <div class="card-body">
-              <h5 class="card-title">Todo App</h5>
-              <p class="card-text">A simple todo app reference <a href="http://todomvc.com/" target="_blank">TodoMVC</a>
-                code template. Power by <a href="http://todomvc.com/examples/backbone" target="_blank">Backbone.js</a>
-                framework.</p>
-              <a class="btn btn-primary" href="https://benbinbin.github.io/ud989-todo-app/" target="_blank"
-                role="button">Live Demo</a>
-              <a class="btn btn-outline-primary" href="https://github.com/Benbinbin/ud989-todo-app" target="_blank"
-                role="button">Source</a>
-            </div>
-            <div class="card-footer text-muted">
-              <span class="badge badge-pill" style="background-color: #0071B5;color: #fff">Backbone.js</span>
-            </div>
-          </div>
-        </div>
-        <div class="col mt-4">
-          <div class="card h-100">
-            <div class="bg-image" style="background-image: url('images/todos-vue-js.png');"></div>
-            <div class="card-body">
-              <h5 class="card-title">Todo App</h5>
-              <p class="card-text">Todo app power by the progressive JavaScript Framework <a
-                  href="https://vuejs.org/index.html">Vue.js</a>.</p>
-              <a class="btn btn-primary" href="https://benbinbin.github.io/Todo-Demo-Vue/" target="_blank"
-                role="button">Live Demo</a>
-              <a class="btn btn-outline-primary" href="https://github.com/Benbinbin/Todo-Demo-Vue" target="_blank"
-                role="button">Source</a>
-            </div>
-            <div class="card-footer text-muted">
-              <span class="badge badge-pill" style="background-color: #7952B3;color: #fff">Bootstrap</span>
-              <span class="badge badge-pill" style="background-color: #81C784;color: #fff">Vue.js</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <h2 id="extensions" class="text-secondary mt-5">Browser Extensions</h2>
-      <div class="row row-cols-1 row-cols-md-2">
-        <div class="col mt-4">
-          <div class="card h-100">
-            <div class="bg-image"
-              style="background-image: url('images/kitten-pictures.png');background-size: contain; background-repeat: no-repeat;">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Kitten Pictures</h5>
-              <p class="card-text">A Chrome Extension to change the images on web page to cute kitten pictures by one
-                click.</p>
-              <a class="btn btn-outline-primary" href="https://github.com/Benbinbin/Kitten-Pictures" target="_blank"
-                role="button">Source</a>
-            </div>
-            <div class="card-footer text-muted">
-              <span class="badge badge-pill" style="background-color: #FFCE44;color: #fff">Chrome Extension</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <h2 id="game" class="text-secondary mt-5">Game</h2>
-      <div class="row row-cols-1 row-cols-md-2">
-        <div class="col mt-4">
-          <div class="card h-100">
-            <div class="bg-image" style="background-image: url('images/frogger.png');"></div>
-            <div class="card-body">
-              <h5 class="card-title">Frogger Game</h5>
-              <p class="card-text">Frogger is a classic arcade game, I "clone" it just use JavaScript by referring to a
-                <a href="https://github.com/udacity/frontend-nanodegree-arcade-game" target="_blank">Udacity project</a>
-                code template.</p>
-              <a class="btn btn-primary" href="https://benbinbin.github.io/frontend-nanodegree-arcade-game/"
-                target="_blank" role="button">Live
-                Demo</a>
-              <a class="btn btn-outline-primary" href="https://github.com/Benbinbin/frontend-nanodegree-arcade-game"
-                target="_blank" role="button">Source</a>
-            </div>
-            <div class="card-footer text-muted">
-              <span class="badge badge-pill" style="background-color: #FFD600;color: #fff">JavaScript</span>
-            </div>
-          </div>
-        </div>
-        <div class="col mt-4">
-          <div class="card h-100">
-            <div class="bg-image" style="background-image: url('images/matching-game.png');"></div>
-            <div class="card-body">
-              <h5 class="card-title">Matching Game</h5>
-              <p class="card-text">This project builds a browser-based card matching game, also called Concentration) by
-                referring to a
-                <a href="https://github.com/udacity/fend-project-memory-game" target="_blank">Udacity project</a>
-                code template.</p>
-              <a class="btn btn-primary" href="https://benbinbin.github.io/memory-game/" target="_blank"
-                role="button">Live
-                Demo</a>
-              <a class="btn btn-outline-primary" href="https://github.com/Benbinbin/memory-game" target="_blank"
-                role="button">Source</a>
-            </div>
-            <div class="card-footer text-muted">
-              <span class="badge badge-pill" style="background-color: #FFD600;color: #fff">JavaScript</span>
-              <span class="badge badge-pill" style="background-color: #007BFF;color: #fff">Animate.css</span>
+            <div class="card-footer">
+              <span v-for="tag of exercise.tags" class="badge bg-secondary me-1">{{tag}}</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <hr class="my-5">
-
-    <section id="front-end">
-      <h1 class="mb-5"><span>Data Visualization Project</span></h1>
-      <h2 id="echarts" class="text-secondary">ECharts</h2>
-      <div class="row row-cols-1 row-cols-md-2">
-        <div class="col mt-4">
-          <div class="card h-100">
-            <div class="bg-image" style="background-image: url('images/line-chart-echarts.png');"></div>
-            <div class="card-body">
-              <h5 class="card-title">Line Chart</h5>
-              <p class="card-text">Visualize the personal consumption data.</p>
-              <a class="btn btn-primary"
-                href="https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project09_line_chart/index.html"
-                target="_blank" role="button">Live
-                Demo</a>
-              <a class="btn btn-outline-primary"
-                href="https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project09_line_chart"
-                target="_blank" role="button">Source</a>
-            </div>
-            <div class="card-footer text-muted">
-              <span class="badge badge-pill" style="background-color: #AA314D;color: #fff">ECharts</span>
-              <span class="badge badge-pill" style="background-color: #7952B3;color: #fff">Bootstrap</span>
-            </div>
-          </div>
-        </div>
-        <div class="col mt-4">
-          <div class="card h-100">
-            <div class="bg-image" style="background-image: url('images/keep-fit-echarts.png');"></div>
-            <div class="card-body">
-              <h5 class="card-title">Calendar Chart</h5>
-              <p class="card-text">Visualize the health data.</p>
-              <a class="btn btn-primary"
-                href="https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project10_calendar_chart/index.html"
-                target="_blank" role="button">Live
-                Demo</a>
-              <a class="btn btn-outline-primary"
-                href="https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project10_calendar_chart"
-                target="_blank" role="button">Source</a>
-            </div>
-            <div class="card-footer text-muted">
-              <span class="badge badge-pill" style="background-color: #AA314D;color: #fff">ECharts</span>
-              <span class="badge badge-pill" style="background-color: #7952B3;color: #fff">Bootstrap</span>
-            </div>
-          </div>
-        </div>
-        <div class="col mt-4">
-          <div class="card h-100">
-            <div class="bg-image" style="background-image: url('images/candlestick-chart-echarts.png');"></div>
-            <div class="card-body">
-              <h5 class="card-title">Candlestick Chart</h5>
-              <p class="card-text">Visualize the stock data and simulate asynchronous data loading.</p>
-              <a class="btn btn-primary"
-                href="https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project11_candlestick_chart/index.html"
-                target="_blank" role="button">Live
-                Demo</a>
-              <a class="btn btn-outline-primary"
-                href="https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project11_candlestick_chart"
-                target="_blank" role="button">Source</a>
-            </div>
-            <div class="card-footer text-muted">
-              <span class="badge badge-pill" style="background-color: #AA314D;color: #fff">ECharts</span>
-              <span class="badge badge-pill" style="background-color: #7952B3;color: #fff">Bootstrap</span>
-            </div>
-          </div>
-        </div>
-        <div class="col mt-4">
-          <div class="card h-100">
-            <div class="bg-image" style="background-image: url('images/takeout-route-echarts.png');"></div>
-            <div class="card-body">
-              <h5 class="card-title">Delivery Route Dynamic Visualization.</h5>
-              <p class="card-text">Visualize the takeaway routes data.</p>
-              <a class="btn btn-primary"
-                href="https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project13_takeout_route/index.html"
-                target="_blank" role="button">Live
-                Demo</a>
-              <a class="btn btn-outline-primary"
-                href="https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project13_takeout_route"
-                target="_blank" role="button">Source</a>
-            </div>
-            <div class="card-footer text-muted">
-              <span class="badge badge-pill" style="background-color: #AA314D;color: #fff">ECharts</span>
-              <span class="badge badge-pill" style="background-color: #7952B3;color: #fff">Bootstrap</span>
-            </div>
-          </div>
-        </div>
-        <div class="col mt-4">
-          <div class="card h-100">
-            <div class="bg-image" style="background-image: url('images/cities-investment-echarts.png');"></div>
-            <div class="card-body">
-              <h5 class="card-title">Investment Relationship OD Line Map</h5>
-              <p class="card-text">Visualize the investment relationship between cities in China.</p>
-              <a class="btn btn-primary"
-                href="https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project14_investment/index.html"
-                target="_blank" role="button">Live
-                Demo</a>
-              <a class="btn btn-outline-primary"
-                href="https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project14_investment"
-                target="_blank" role="button">Source</a>
-            </div>
-            <div class="card-footer text-muted">
-              <span class="badge badge-pill" style="background-color: #AA314D;color: #fff">ECharts</span>
-              <span class="badge badge-pill" style="background-color: #7952B3;color: #fff">Bootstrap</span>
-            </div>
-          </div>
-        </div>
-        <div class="col mt-4">
-          <div class="card h-100">
-            <div class="bg-image" style="background-image: url('images/urban-crowd-echarts-gl.png');"></div>
-            <div class="card-body">
-              <h5 class="card-title">Urban Population Data Monitor</h5>
-              <p class="card-text">Visualize urban crowd data over time and show it as 3D bar with WebGL technology.</p>
-              <a class="btn btn-primary"
-                href="https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project15_urban_crowd_monitor/"
-                target="_blank" role="button">Live
-                Demo</a>
-              <a class="btn btn-outline-primary"
-                href="https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project15_urban_crowd_monitor"
-                target="_blank" role="button">Source</a>
-            </div>
-            <div class="card-footer text-muted">
-              <span class="badge badge-pill" style="background-color: #AA314D;color: #fff">ECharts-GL</span>
-              <span class="badge badge-pill" style="background-color: #7952B3;color: #fff">Bootstrap</span>
-            </div>
-          </div>
-        </div>
-        <div class="col mt-4">
-          <div class="card h-100">
-            <div class="bg-image" style="background-image: url('images/smart-city-echarts-gl.png');"></div>
-            <div class="card-body">
-              <h5 class="card-title">Smart City</h5>
-              <p class="card-text">Visualize the data about the West Lake (in Hangzhou) with WebGL technology and
-                combine multiple charts.</p>
-              <a class="btn btn-primary"
-                href="https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project16_smart_city/index.html"
-                target="_blank" role="button">Live
-                Demo</a>
-              <a class="btn btn-outline-primary"
-                href="https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project16_smart_city"
-                target="_blank" role="button">Source</a>
-            </div>
-            <div class="card-footer text-muted">
-              <span class="badge badge-pill" style="background-color: #AA314D;color: #fff">ECharts-GL</span>
-              <span class="badge badge-pill" style="background-color: #7952B3;color: #fff">Bootstrap</span>
-            </div>
-          </div>
-        </div>
-        <div class="col mt-4">
-          <div class="card h-100">
-            <div class="bg-image" style="background-image: url('images/staff-relationship-echarts.png');"></div>
-            <div class="card-body">
-              <h5 class="card-title">Company Staff Relationship Visualization</h5>
-              <p class="card-text">Visualize the company employees hierarchy.</p>
-              <a class="btn btn-primary"
-                href="https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project18_19_tree_and_treemap/index.html"
-                target="_blank" role="button">Live
-                Demo</a>
-              <a class="btn btn-outline-primary"
-                href="https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project18_19_tree_and_treemap"
-                target="_blank" role="button">Source</a>
-            </div>
-            <div class="card-footer text-muted">
-              <span class="badge badge-pill" style="background-color: #AA314D;color: #fff">ECharts</span>
-              <span class="badge badge-pill" style="background-color: #7952B3;color: #fff">Bootstrap</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <h2 id="d3js" class="text-secondary">D3.js</h2>
-      <div class="row row-cols-1 row-cols-md-2">
-        <div class="col mt-4">
-          <div class="card h-100">
-            <div class="bg-image" style="background-image: url('images/film-flowers.png');"></div>
-            <div class="card-body">
-              <h5 class="card-title">Film Flowers</h5>
-              <p class="card-text">Using D3.js to visualize the movies data.</p>
-              <a class="btn btn-primary" href="https://benbinbin.github.io/film-flowers-d3/" target="_blank"
-                role="button">Live Demo</a>
-              <a class="btn btn-outline-primary" href="https://github.com/Benbinbin/film-flowers-d3" target="_blank"
-                role="button">Source</a>
-            </div>
-            <div class="card-footer text-muted">
-              <span class="badge badge-pill" style="background-color:#F89D42;color: #fff">D3.js</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    let contents = [
+      {
+        type: 'front-end',
+        exercises: [
+          {
+            name: 'Canvas Editor',
+            description: 'An image editor power by Canvas-2D.',
+            img: '',
+            demo: 'https://github.com/Benbinbin/canvas-editor',
+            source: 'https://benbinbin.github.io/canvas-editor/',
+            tags: ['Vue.js', 'Canvas']
+          },
+          {
+            name: 'OCR-MapDown',
+            description: 'An ocr application of MapDown Web App.',
+            img: '',
+            demo: 'https://github.com/Benbinbin/OCR-MapDown',
+            source: 'https://benbinbin.github.io/OCR-MapDown/',
+            tags: ['Vue.js', 'Canvas', 'OCR']
+          },
+          {
+            name: 'Apple Home Page',
+            description: 'Using HTML and CSS build a clone of Apple Home page.',
+            img: ``,
+            demo: 'https://benbinbin.github.io/Apple-Page/',
+            source: 'https://github.com/Benbinbin/Apple-Page',
+            tags: ['HTML', 'CSS']
+          },
+          {
+            name: 'Github Page',
+            description: 'Using HTML and Tailwind build a clone of Github web page.',
+            img: `url('images/github-tailwind.png')`,
+            demo: 'https://benbinbin.github.io/github-tailwind/',
+            source: 'https://github.com/Benbinbin/github-tailwind',
+            tags: ['Tailwind']
+          },
+          {
+            name: 'Food Recipes',
+            description: 'Using HTML and Tailwind build a responsive web page.',
+            img: `url('images/food-tailwind.png')`,
+            demo: 'https://benbinbin.github.io/github-tailwind/',
+            source: 'https://github.com/Benbinbin/github-tailwind',
+            tags: ['Tailwind']
+          },
+          {
+            name: 'Digital Market',
+            description: 'E-commerce website power by Bootstrap.',
+            img: `url('images/digita-market.png')`,
+            demo: 'https://benbinbin.github.io/DigitalMarket/',
+            source: 'https://github.com/Benbinbin/DigitalMarket',
+            tags: ['Bootstrap']
+          },
+          {
+            name: 'Sweetaste',
+            description: 'A dessert shop website power by Bootstrap.',
+            img: `url('images/sweetaste.png')`,
+            demo: 'https://benbinbin.github.io/Dessert-shop/',
+            source: 'https://github.com/Benbinbin/Dessert-shop',
+            tags: ['Bootstrap', 'Scss']
+          },
+          {
+            name: 'Dashboard',
+            description: 'A dashboard power by Vue.js.',
+            img: `url('images/dashboard-vue.png')`,
+            demo: 'https://benbinbin.github.io/dashboard-vue',
+            source: 'https://github.com/Benbinbin/dashboard-vue',
+            tags: ['Vue.js']
+          },
+          {
+            name: 'Todo App',
+            description: 'Todo app power by Vue.js.',
+            img: `url('images/todos-vue-js.png')`,
+            demo: 'https://benbinbin.github.io/Todo-Demo-Vue/',
+            source: 'https://github.com/Benbinbin/Todo-Demo-Vue',
+            tags: ['Vue.js']
+          },
+          {
+            name: 'Kitten Pictures',
+            description: 'A Chrome Extension to change the images on web page to cute kitten pictures by one click.',
+            img: `url('images/kitten-pictures.png')`,
+            source: 'https://github.com/Benbinbin/Kitten-Pictures',
+            tags: ['Chrome Extension']
+          },
+          {
+            name: 'Frogger Game',
+            description: 'A classic arcade game.',
+            img: `url('images/frogger.png')`,
+            demo: 'https://benbinbin.github.io/frontend-nanodegree-arcade-game/',
+            source: 'https://github.com/Benbinbin/frontend-nanodegree-arcade-game',
+            tags: ['JavaScript']
+          },
+          {
+            name: 'Matching Game',
+            description: 'Card matching game also called Concentration.',
+            img: `url('images/matching-game.png')`,
+            demo: 'https://benbinbin.github.io/memory-game/',
+            source: 'https://github.com/Benbinbin/memory-game',
+            tags: ['JavaScript']
+          },
+        ]
+      },
+      {
+        type: 'data-vis',
+        exercises: [
+          {
+            name: 'Line Chart',
+            description: 'Visualize the personal consumption data.',
+            img: `url('images/line-chart-echarts.png')`,
+            demo: 'https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project09_line_chart/index.html',
+            source: 'https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project09_line_chart',
+            tags: ['ECharts']
+          },
+          {
+            name: 'Calendar Chart',
+            description: 'Visualize the health data.',
+            img: `url('images/keep-fit-echarts.png')`,
+            demo: 'https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project10_calendar_chart/index.html',
+            source: 'https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project10_calendar_chart',
+            tags: ['ECharts']
+          },
+          {
+            name: 'Candlestick Chart',
+            description: 'Visualize the stock data and simulate asynchronous data loading.',
+            img: `url('images/candlestick-chart-echarts.png')`,
+            demo: 'https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project11_candlestick_chart/index.html',
+            source: 'https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project11_candlestick_chart',
+            tags: ['ECharts']
+          },
+          {
+            name: 'Company Staff Relationship Visualization',
+            description: 'Visualize the company employees hierarchy.',
+            img: `url('images/staff-relationship-echarts.png')`,
+            demo: 'https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project18_19_tree_and_treemap/index.html',
+            source: 'https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project18_19_tree_and_treemap',
+            tags: ['ECharts']
+          },
+          {
+            name: 'Delivery Route Dynamic Visualization',
+            description: 'Visualize the takeaway routes data.',
+            img: `url('images/takeout-route-echarts.png')`,
+            demo: 'https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project13_takeout_route/index.html',
+            source: 'https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project13_takeout_route',
+            tags: ['ECharts']
+          },
+          {
+            name: 'Investment Relationship OD Line Map',
+            description: 'Visualize the investment relationship between cities in China.',
+            img: `url('images/cities-investment-echarts.png')`,
+            demo: 'https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project14_investment/index.html',
+            source: 'https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project14_investment',
+            tags: ['ECharts']
+          },
+          {
+            name: 'Urban Population Data Monitor',
+            description: 'Visualize urban crowd data over time and show it as 3D bar with WebGL technology.',
+            img: `url('images/urban-crowd-echarts-gl.png')`,
+            demo: 'https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project15_urban_crowd_monitor/',
+            source: 'https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project15_urban_crowd_monitor',
+            tags: ['ECharts-GL']
+          },
+          {
+            name: 'Smart City',
+            description: 'Visualize the data about the West Lake (in Hangzhou) with WebGL technology and combine multiple charts.',
+            img: `url('images/smart-city-echarts-gl.png')`,
+            demo: 'https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project16_smart_city/index.html',
+            source: 'https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project16_smart_city',
+            tags: ['ECharts-GL']
+          },
+          {
+            name: 'Film Flowers',
+            description: 'Using D3.js to visualize the movies data.',
+            img: `url('images/film-flowers.png')`,
+            demo: 'https://benbinbin.github.io/film-flowers-d3/',
+            source: 'https://github.com/Benbinbin/film-flowers-d3',
+            tags: ['D3.js']
+          },
+        ]
+      }
+    ]
+
+    new Vue({
+      el: '#main',
+      data: {
+        contents: contents
+      }
+    })
+  </script>
 </body>
 
 </html>

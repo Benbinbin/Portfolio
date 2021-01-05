@@ -6,70 +6,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ben Thomson Portfolio</title>
   <link rel="icon" href="images/Ben.png">
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
   <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="styles/project.css">
-
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand font-weight-bold" href="#">Ben Thomson</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand font-weight-bold" href="#">Ben Thomson</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item mr-3">
+            <a class="nav-link text-dark" href="#projects">Projects</a>
+          </li>
+          <li class="nav-item mr-3">
+            <a class="nav-link text-dark" href="exercise.html">More Exercise</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="#contact">Contact</a>
+          </li>
+        </ul>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item mr-5">
-          <a class="nav-link text-dark" href="#about">About</a>
-        </li>
-        <li class="nav-item mr-5">
-          <a class="nav-link text-dark" href="#projects">Projects</a>
-        </li>
-        <li class="nav-item mr-5">
-          <a class="nav-link text-dark" href="exercise.html" target="_blank">More Exercise</a>
-        </li>
-        <li class="nav-item mr-5">
-          <a class="nav-link text-dark" href="#contact">Contact</a>
-        </li>
+      </div>
     </div>
   </nav>
+
   <div class="container pb-5">
-    <div id="about" class="container mt-5">
+    <div id="about" class="container my-5">
       <div class="row">
         <div class="col-md-4 order-md-1 d-flex align-items-center">
           <img class="img-fluid rounded-circle" src="images/Ben.png" alt="avatar">
         </div>
         <div class="col-md-8">
           <div class="jumbotron" style="background-color: #F4F6FA;">
-            <h1 class="display-3 mb-5">Hello, I'm Ben</h1>
-            <p class="lead">I'm interested in creating nice and interesting tings. Now I'm learning and improving my
-              <strong>front-end</strong> and <strong>data visualization</strong>skills. You can explore some works of
+            <h1 class="display-3 mb-5">Hi, I'm Ben</h1>
+            <p class="lead">I'm interested in creating nice and interesting things.</p>
+            <p class="lead">Now I'm doing some <strong>front-end</strong> and <strong>data visualization</strong>
+              projects. You can explore some works of
               mine in this portfolio.</p>
-            <p class="lead">You can take a look of my <a class="blog-link" href="https://benbinbin.github.io/"
-                target="_blank">Tech Blog</a> which has
-              some tech notes about different skills. By the way, I'm learning illustration creation and web design, you
-              can check my <a class="blog-link" href="http://binbindesign.gitee.io/" target="_blank">Design Blog</a> for
-              more
-              information.</p>
-            <hr class="my-4">
-            <a href="mailto:mebeansbin@gmail.com" type="button"
-              class="btn btn-outline-primary btn-lg rounded-pill">Contact Me</a>
+            <p class="lead">You can also check out my <a class="blog-link" href="https://benbinbin.github.io/"
+                target="_blank">Tech Blog</a> and <a class="blog-link" href="http://binbindesign.gitee.io/"
+                target="_blank">Design Blog</a> for more information.</p>
+            <hr class="my-5">
           </div>
         </div>
       </div>
     </div>
 
-    <div id="projects" class="container">
+    <div id="projects" class="container py-5">
       <h2>Projects</h2>
       <div class="row row-cols-1 row-cols-md-2">
         <div class="col mt-4">
           <div class="card h-100 border">
             <div class="bg-image border-0"
-              style="background-image: url('images/city-walker.png');background-size: contain;background-position: center center; background-repeat: no-repeat;">
+              style="background-image: url('images/city-walker.png');">
             </div>
             <div class="card-body">
               <h5 class="card-title">City Walker</h5>
@@ -89,7 +86,7 @@
         <div class="col mt-4">
           <div class="card h-100 border">
             <div class="bg-image border-0"
-              style="background-image: url('images/design-blog.png');background-size: contain;background-position: center center; background-repeat: no-repeat;">
+              style="background-image: url('images/design-blog.png');">
             </div>
             <div class="card-body">
               <h5 class="card-title">Design Blog</h5>
@@ -108,47 +105,33 @@
   </div>
 
   <footer id="contact">
-    <div class="container">
-      <div class="row justify-content-between">
-        <div
-          class="col-12 col-md-4 my-5 d-flex flex-column justify-content-center align-items-md-start align-items-center">
-          <h1 class="mb-3">Contact Me</h1>
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-md-start align-items-center">
+          <h3 class="mb-3">Contact Me</h3>
           <div class="d-flex flex-column justify-content-start">
             <a href="mailto:mebeansbin@gmail.com">
-              <img src="images/email.png" style="width:20px" alt="email icon" class="mr-2">mebeansbin@gmail.com</a>
-            <p><img src="images/address.png" style="width:20px" alt="email icon" class="mr-2">Guangzhou, China</a></p>
+              <img src="images/email.png" style="width:20px" alt="email icon" class="mr-2"> mebeansbin@gmail.com</a>
+            <p><img src="images/address.png" style="width:20px" alt="email icon" class="mr-2"> Guangzhou, China</a></p>
           </div>
 
         </div>
-        <div class="col-3 col-md-2 my-5 d-flex justify-content-center align-items-center">
-          <a href="https://github.com/Benbinbin" target="_blank">
-            <img src="images/github.svg" alt="github icon"></a>
-        </div>
-        <div class="col-3 col-md-2 my-5 d-flex justify-content-center align-items-center">
-          <a href="https://juejin.im/user/3175045314389278" target="_blank">
-            <img src="images/juejin.svg" alt="juejin icon"></a>
-        </div>
-        <div class="col-3 col-md-2 my-5 d-flex justify-content-center align-items-center">
-          <a href="https://twitter.com/Benbinbin_fun" target="_blank">
-            <img src="images/twitter.png" alt="github icon"></a>
-        </div>
-        <div class="col-3 col-md-2 my-5 d-flex justify-content-center align-items-center">
-          <a href="https://weibo.com/binbindesign" target="_blank">
-            <img src="images/weibo.svg" alt="github icon"></a>
+        <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end align-items-center">
+          <a class="me-3" href="https://github.com/Benbinbin" target="_blank">
+            <img src="images/github.svg" alt="github icon">
+          </a>
+          <a class="me-3" href="https://juejin.im/user/3175045314389278" target="_blank">
+            <img src="images/juejin.svg" alt="juejin icon">
+          </a>
+          <a class="me-3" href="https://twitter.com/Benbinbin_fun" target="_blank">
+            <img src="images/twitter.png" alt="github icon">
+          </a>
+          <a class="" href="https://weibo.com/binbindesign" target="_blank">
+            <img src="images/weibo.svg" alt="github icon">
+          </a>
         </div>
       </div>
-    </div>
   </footer>
-
-
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
-
-  <script>
-    $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
-    })
-  </script>
 </body>
 
 </html>
