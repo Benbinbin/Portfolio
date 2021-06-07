@@ -1,0 +1,25 @@
+{
+  "name": "benbinbin_portfolio",
+  "version": "1.0.0",
+  "description": "A portfolio about me and my projects.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Benbinbin/Portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Benbinbin/Portfolio/issues"
+  },
+  "homepage": "https://github.com/Benbinbin/Portfolio#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.2.6",
+    "postcss": "^8.3.0",
+    "tailwindcss": "^2.1.4"
+  }
+}

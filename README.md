@@ -1,4 +1,1 @@
-# About
-A portfolio about me and my projects.
-
-checkout: https://benbinbin.github.io/Portfolio/
+A [portfolio](https://benbinbin.github.io/Portfolio/) about me.

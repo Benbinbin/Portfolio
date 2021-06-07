@@ -4,119 +4,96 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ben Thomson Portfolio</title>
-  <link rel="icon" href="images/Ben.png">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-    crossorigin="anonymous"></script>
+  <title>Benbinbin Portfolio</title>
+  <link rel="icon" href="./images/Ben.png">
+  <link rel="stylesheet" href="styles/tailwind.css">
   <link rel="stylesheet" href="styles/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.0.11/dist/vue.global.min.js"></script>
 </head>
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand font-weight-bold" href="#">Ben Thomson</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item mr-3">
-            <a class="nav-link text-dark" href="#projects">Projects</a>
-          </li>
-          <li class="nav-item mr-3">
-            <a class="nav-link text-dark" href="exercise.html">More Exercise</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="#contact">Contact</a>
-          </li>
-        </ul>
-
-      </div>
+<body id="app" class="bg-gray-100">
+  <nav class="navbar sticky top-0 flex justify-between items-center p-4 text-gray-500 bg-gray-100">
+    <a class="navbar-brand p-2 flex justify-center items-center font-bold space-x-2 hover:bg-gray-200 hover:text-gray-600 transition rounded-md"
+      href="#">
+      <img class="w-8 h-8 rounded" src="./images/Ben.png" alt="avatar icon">
+      <span class="hidden sm:block">Benbinbin</span>
+    </a>
+    <div class="flex items-center space-x-2 font-bold">
+      <a class="nav-link p-2 flex items-center justify-center space-x-0.5  hover:bg-gray-200 hover:text-gray-600 transition rounded-md"
+        href="#projects" title="Projects">
+        <svg class="w-4 h-4" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="-2 -4 24 24"
+          preserveAspectRatio="xMinYMin" class="icon__icon">
+          <path
+            d="M9.293 1.55l.707.708.707-.707a5 5 0 1 1 7.071 7.071l-7.07 7.071a1 1 0 0 1-1.415 0L2.222 8.622a5 5 0 1 1 7.07-7.071z">
+          </path>
+        </svg>
+        <span class="hidden sm:block">Projects</span>
+      </a>
+      <a class="nav-link p-2 flex items-center justify-center space-x-0.5  hover:bg-gray-200 hover:text-gray-600 transition rounded-md"
+        href="exercise.html" title="Exercise">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -3 24 24" class="w-4 h-4" fill="currentColor"
+          preserveAspectRatio="xMinYMin" class="icon__icon">
+          <path
+            d="M8.406 12.732L5.367 9.693c.543-.956 1.335-1.903 2.375-2.838 1.341-1.208 3.708-3.25 7.1-6.126a1.795 1.795 0 0 1 2.53 2.53c-2.88 3.398-4.921 5.765-6.125 7.1-.935 1.037-1.882 1.828-2.841 2.373zM3.99 11.146l2.965 2.964-1.366 1.906-5.276 1.795 1.771-5.3 1.906-1.365z">
+          </path>
+        </svg>
+        <span class="hidden sm:block">Exercise</span>
+      </a>
+      <a class="nav-link p-2 flex items-center justify-center space-x-0.5  hover:bg-gray-200 hover:text-gray-600 transition rounded-md"
+        href="#contact" title="Contact">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -5 24 24" class="w-4 h-4" fill="currentColor"
+          preserveAspectRatio="xMinYMin" class="icon__icon">
+          <path
+            d="M18.572.083L10.676 7.12a1 1 0 0 1-1.331 0L1.416.087A2 2 0 0 1 2 0h16a2 2 0 0 1 .572.083zm1.356 1.385c.047.17.072.348.072.532v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2c0-.185.025-.364.072-.534l7.942 7.148a3 3 0 0 0 3.992 0l7.922-7.146z">
+          </path>
+        </svg>
+        <span class="hidden sm:block">Contact</span>
+      </a>
     </div>
+
+
   </nav>
 
-  <div class="container pb-5">
-    <div id="about" class="container my-5">
-      <div class="row">
-        <div class="col-md-4 order-md-1 d-flex align-items-center">
-          <img class="img-fluid rounded-circle" src="images/Ben.png" alt="avatar">
-        </div>
-        <div class="col-md-8">
-          <div class="jumbotron" style="background-color: #F4F6FA;">
-            <h1 class="display-3 mb-5">Hi, I'm Ben</h1>
-            <p class="lead">I'm interested in creating nice and interesting things.</p>
-            <p class="lead">Now I'm doing some <strong>front-end</strong> and <strong>data visualization</strong>
-              projects. You can explore some works of
-              mine in this portfolio.</p>
-            <p class="lead">You can also check out my <a class="blog-link" href="https://benbinbin.github.io/"
-                target="_blank">Tech Blog</a> and <a class="blog-link" href="http://binbindesign.gitee.io/"
-                target="_blank">Design Blog</a> for more information.</p>
-            <hr class="my-5">
-          </div>
-        </div>
+  <div class="container mx-auto text-gray-600 ">
+    <div id="about" class="sm:w-4/5 mx-auto p-8 my-16 grid grid-cols-1 sm:grid-cols-4 sm:gap-6 items-center">
+      <div class="col-span-3 space-y-4">
+        <h1 class="text-5xl font-bold py-8">Hi, I'm <span class="highlight">Ben</span></h1>
+        <p class="text-lg font-light">I'm interested in creating nice and interesting things.</p>
+        <p class="text-lg font-light">Now I'm doing some <strong>front-end</strong> and <strong>data
+            visualization</strong>
+          <a class="text-blue-500 underline" href="#projects">projects</a>, you can explore them in this portfolio.
+        </p>
+        <p class="text-lg font-light">You can also check out my <a class="text-blue-500 underline italic"
+            href="https://benbinbin.github.io/tech-blog/" target="_blank">Tech Blog</a> for more learning notes.</p>
       </div>
+      <img class="hidden sm:block col-span-1 rounded-full" src="./images/Ben.png" alt="avatar icon">
     </div>
 
-    <div id="projects" class="container py-5">
-      <h2>Projects</h2>
-      <div class="row row-cols-1 row-cols-md-2">
-        <div class="col mt-4">
-          <div class="card h-100 border">
-            <div class="bg-image border-0"
-              style="background-image: url('images/bookdown.png');">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">BookDown</h5>
-              <p class="card-text">A bookmarks manager Chrome extension.</p>
-              <a class="btn-sm btn-primary" href="https://www.bilibili.com/video/BV1up4y1s7VP" target="_blank" role="button">Demo</a>
-              <a class="btn-sm btn-primary" href="https://github.com/Benbinbin/BookDown" target="_blank"
-                role="button">App</a>
-
-            </div>
-            <div class="card-footer text-muted">
-              <span class="badge badge-pill" style="background-color: #DD5145;color: #fff">Chrome Extension</span>
-              <span class="badge badge-pill" style="background-color: #81C784;color: #fff">Vue</span>
-            </div>
+    <div id="projects" class="container sm:w-4/5 mx-auto p-8">
+      <h2 class="text-3xl font-bold"><span class="highlight">Projects</span></h2>
+      <div class="py-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+        <div v-for="project of projects" :key="project.name"
+          class="card flex flex-col bg-gray-200 rounded-lg hover:shadow-lg transition">
+          <div class="card-head rounded-t-lg h-60 p-6 flex justify-center items-center bg-gray-50">
+            <img class="w-4/5 object-contain" :src="project.logo" style="max-height: 100%"
+              :alt="`${project.name} logo`">
           </div>
-        </div>
+          <div class="card-body flex-grow p-6 flex flex-col space-y-4">
+            <div class="flex-grow space-y-4">
+              <h3 class="card-title font-bold text-2xl">{{ project.name }}</h3>
+              <p class="card-text">{{ project.description}}</p>
+            </div>
 
-        <div class="col mt-4">
-          <div class="card h-100 border">
-            <div class="bg-image border-0"
-              style="background-image: url('images/city-walker.png');">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">City Walker</h5>
-              <p class="card-text">Use Element UI and Vue build this Web App</p>
-              <a class="btn-sm btn-primary" href="https://benbinbin.gitee.io/city-walker/#/" target="_blank"
-                role="button">Live
-                Demo</a>
-
-            </div>
-            <div class="card-footer text-muted">
-              <span class="badge badge-pill" style="background-color: #409EFF;color: #fff">Element UI</span>
-              <span class="badge badge-pill" style="background-color: #81C784;color: #fff">Vue</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col mt-4">
-          <div class="card h-100 border">
-            <div class="bg-image border-0"
-              style="background-image: url('images/design-blog.png');">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Design Blog</h5>
-              <p class="card-text">Use Gulp and markdown-it to compile markdown files to blog posts.</p>
-              <a class="btn-sm btn-primary" href="http://binbindesign.gitee.io/" target="_blank" role="button">Live
-                Demo</a>
-            </div>
-            <div class="card-footer text-muted">
-              <span class="badge badge-pill" style="background-color: #F06292;color: #fff">SCSS</span>
-              <span class="badge badge-pill" style="background-color: #E74C3C;color: #fff">Gulp</span>
+            <div class="flex items-center space-x-2">
+              <a v-if="project.home"
+                class="p-3 bg-blue-500 hover:bg-blue-600 transition text-white font-bold text-xs rounded"
+                :href="project.home" target="_blank">Home</a>
+              <a v-if="project.github"
+                class="p-3 bg-blue-500 hover:bg-blue-600 transition text-white font-bold text-xs rounded"
+                :href="project.github" target="_blank">Github</a>
+              <a v-if="project.demo"
+                class="p-3 bg-blue-500 hover:bg-blue-600 transition text-white font-bold text-xs rounded"
+                :href="project.demo" target="_blank" role="button">Demo</a>
             </div>
           </div>
         </div>
@@ -124,34 +101,68 @@
     </div>
   </div>
 
-  <footer id="contact">
-    <div class="container py-5">
-      <div class="row">
-        <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-md-start align-items-center">
-          <h3 class="mb-3">Contact Me</h3>
-          <div class="d-flex flex-column justify-content-start">
-            <a href="mailto:mebeansbin@gmail.com">
-              <img src="images/email.png" style="width:20px" alt="email icon" class="mr-2"> mebeansbin@gmail.com</a>
-            <p><img src="images/address.png" style="width:20px" alt="email icon" class="mr-2"> Guangzhou, China</a></p>
-          </div>
-
-        </div>
-        <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end align-items-center">
-          <a class="me-3" href="https://github.com/Benbinbin" target="_blank">
-            <img src="images/github.svg" alt="github icon">
-          </a>
-          <a class="me-3" href="https://juejin.im/user/3175045314389278" target="_blank">
-            <img src="images/juejin.svg" alt="juejin icon">
-          </a>
-          <a class="me-3" href="https://twitter.com/Benbinbin_fun" target="_blank">
-            <img src="images/twitter.png" alt="github icon">
-          </a>
-          <a class="" href="https://weibo.com/binbindesign" target="_blank">
-            <img src="images/weibo.svg" alt="github icon">
-          </a>
-        </div>
+  <footer id="contact" class="bg-gray-200 px-4 py-10">
+    <div class="container flex justify-between">
+      <div class="d-flex flex-column justify-content-start">
+        <a class="flex p-2 items-center space-x-2 hover:bg-gray-300 rounded-md" href="mailto:mebeansbin@gmail.com">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -5 24 24" class="w-5 h-5" fill="currentColor"
+            preserveAspectRatio="xMinYMin" class="icon__icon">
+            <path
+              d="M18.572.083L10.676 7.12a1 1 0 0 1-1.331 0L1.416.087A2 2 0 0 1 2 0h16a2 2 0 0 1 .572.083zm1.356 1.385c.047.17.072.348.072.532v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2c0-.185.025-.364.072-.534l7.942 7.148a3 3 0 0 0 3.992 0l7.922-7.146z">
+            </path>
+          </svg>
+          <span class="hidden sm:block font-bold text-sm">mebeansbin@gmail.com</span>
+        </a>
+      </div>
+      <div class="flex items-center space-x-2">
+        <a v-for="medium of social_media" :key="medium.name" class="p-2 hover:bg-gray-300 rounded-md" :href="medium.url" target="_blank" :title="medium.name">
+          <img :src="medium.logo" :alt="medium.name" >
+        </a>
       </div>
   </footer>
+  <script>
+    const app = {
+      data() {
+        return {
+          projects: [
+            {
+              name: 'BookMate',
+              logo: './images/projects/BookMate-logo-font.png',
+              description: 'A web app to manage book excerpts and take notes.',
+              home: 'https://benbinbin.github.io/BookMate/',
+              github: 'https://github.com/Benbinbin/BookMate',
+              demo: 'https://www.bilibili.com/video/BV1sv411V7tE'
+            },
+            {
+              name: 'BookDown',
+              logo: './images/projects/BookDown-logo-font.png',
+              description: 'A bookmarks manager Chrome extension.',
+              github: 'https://github.com/Benbinbin/BookDown',
+              demo: 'https://www.bilibili.com/video/BV1up4y1s7VP'
+            }
+          ],
+          social_media: [
+            {
+              name: 'github',
+              logo: './images/icons/github.svg',
+              url: 'https://github.com/Benbinbin'
+            },
+            {
+              name: 'twitter',
+              logo: './images/icons/twitter.svg',
+              url: 'https://twitter.com/Benbinbin_fun'
+            },
+            {
+              name: 'weibo',
+              logo: './images/icons/weibo.svg',
+              url: 'https://weibo.com/binbindesign'
+            }
+          ]
+        }
+      }
+    }
+    Vue.createApp(app).mount('#app')
+  </script>
 </body>
 
 </html>
