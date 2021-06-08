@@ -5,253 +5,316 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ben Thomson Portfolio</title>
-  <link rel="icon" href="images/Ben.png">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-    crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="styles/exercise.css">
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js"></script>
+  <link rel="icon" href="./images/Ben.png">
+  <!-- <link rel="stylesheet" href="styles/tailwind.css"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.4/dist/tailwind.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.0.11/dist/vue.global.min.js"></script>
 </head>
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand font-weight-bold" href="index.html">Ben Thomson</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item mr-3">
-            <a class="nav-link text-dark" href="#front-end">Front-end</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="#data-vis">Data Vis</a>
-          </li>
-        </ul>
-
-      </div>
+<body id="app" class="bg-gray-100">
+  <nav class="navbar sticky top-0 flex justify-between items-center p-4 text-gray-500 bg-gray-100">
+    <a class="navbar-brand p-2 flex justify-center items-center font-bold space-x-2 hover:bg-gray-200 hover:text-gray-600 transition rounded-md"
+      href="./index.html">
+      <img class="w-8 h-8 rounded" src="./images/Ben.png" alt="avatar icon">
+      <span class="hidden sm:block">Benbinbin</span>
+    </a>
+    <div class="flex items-center space-x-2 font-bold">
+      <a class="nav-link p-2 flex items-center justify-center space-x-1  hover:bg-gray-200 hover:text-gray-600 transition rounded-md"
+        href="#Front-End" title="Projects">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
+          <path
+            d="M2.5 2A1.5 1.5 0 0 0 1 3.5V12h14V3.5A1.5 1.5 0 0 0 13.5 2h-11zM0 12.5h16a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5z" />
+        </svg>
+        <span class="hidden sm:block">Front-End</span>
+      </a>
+      <a class="nav-link p-2 flex items-center justify-center space-x-1  hover:bg-gray-200 hover:text-gray-600 transition rounded-md"
+        href="#Data-Vis" title="Exercise">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
+          <path
+            d="M15.985 8.5H8.207l-5.5 5.5a8 8 0 0 0 13.277-5.5zM2 13.292A8 8 0 0 1 7.5.015v7.778l-5.5 5.5zM8.5.015V7.5h7.485A8.001 8.001 0 0 0 8.5.015z" />
+        </svg>
+        <span class="hidden sm:block">Data-Vis</span>
+      </a>
     </div>
   </nav>
 
-  <div id="main" class="container my-5">
-    <section v-for="item in contents" :id="item.type">
-      <h1 class="my-5"><span>{{ item.type }}</span></h1>
-      <div class="row row-cols-1 row-cols-md-2 g-4">
-        <div class="col" v-for="exercise in item.exercises">
-          <div class="card h-100">
-            <div class="card-header">
-              <span class="fw-bold">{{ exercise.name }}</span>
+  <div id="main" class="container sm:w-4/5 mx-auto p-8 text-gray-600">
+    <section v-for=" item of exercises" :key="item.type" :id="item.type">
+      <h2 class="text-3xl font-bold my-4">
+        <span class="highlight px-1">{{ item.type }}</span>
+      </h2>
+      <div class="py-10 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
+        <div class="card flex flex-col bg-gray-200 rounded-lg hover:shadow-lg transition"
+          v-for="exercise of item.content" :key="exercise.name">
+          <div class="card-header rounded-t-lg bg-gray-50 border-b">
+            <h3 class="px-6 py-4 text-xl font-bold">{{ exercise.name }}</h3>
+          </div>
+          <div class="card-body flex-grow p-6 flex flex-col space-y-4 bg-gray-50">
+            <p class="card-text mb-auto">{{ exercise.description }}</p>
+            <div class="flex items-center space-x-2">
+              <a v-if="exercise.demo"
+                class="p-2 flex items-stretch bg-blue-500 hover:bg-blue-600 transition text-white font-bold text-xs rounded space-x-1"
+                :href="exercise.demo" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
+                  <path
+                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z" />
+                </svg>
+                <span class="hidden sm:block">Demo</span>
+              </a>
+              <a v-if="exercise.source"
+                class="p-2 flex items-stretch bg-blue-500 hover:bg-blue-600 transition text-white font-bold text-xs rounded space-x-1"
+                :href="exercise.source" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
+                  <path
+                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                </svg>
+                <span class="hidden sm:block">Code</span>
+              </a>
             </div>
-            <div class="card-body d-flex flex-column p-0">
-              <p class="card-text mb-auto p-3">{{ exercise.description }}</p>
-              <div class="p-3 button">
-                <button type="button" class="btn btn-outline-primary btn-sm"><a :href="exercise.demo"
-                    target="_blank">Demo</a></button>
-                <button type="button" class="btn btn-outline-primary btn-sm"><a :href="exercise.source"
-                    target="_blank">Code</a></button>
-              </div>
-              <div class="cover"></div>
+          </div>
+          <div class="card-footer p-4 h-14 flex items-center overflow-x-auto space-x-2">
+            <div class="flex items-center space-x-1" v-for="tag of exercise.tags" :key="tag">
+              <span class="w-2 h-2 rounded-full" :style="{background: tagColor(tag)}"></span>
+              <span class="text-gray-400 font-bold text-xs" :style="{color: tagColor(tag)}">{{tag}}</span>
             </div>
-            <div class="card-footer">
-              <span v-for="tag of exercise.tags" class="badge bg-secondary me-1">{{tag}}</span>
-            </div>
+
           </div>
         </div>
       </div>
     </section>
-
   </div>
 
-  <script>
-    let contents = [
-      {
-        type: 'front-end',
-        exercises: [
-          {
-            name: 'Canvas Editor',
-            description: 'An image editor power by Canvas-2D.',
-            img: '',
-            demo: 'https://github.com/Benbinbin/canvas-editor',
-            source: 'https://benbinbin.github.io/canvas-editor/',
-            tags: ['Vue.js', 'Canvas']
-          },
-          {
-            name: 'OCR-MapDown',
-            description: 'An ocr application of MapDown Web App.',
-            img: '',
-            demo: 'https://github.com/Benbinbin/OCR-MapDown',
-            source: 'https://benbinbin.github.io/OCR-MapDown/',
-            tags: ['Vue.js', 'Canvas', 'OCR']
-          },
-          {
-            name: 'Apple Home Page',
-            description: 'Using HTML and CSS build a clone of Apple Home page.',
-            img: ``,
-            demo: 'https://benbinbin.github.io/Apple-Page/',
-            source: 'https://github.com/Benbinbin/Apple-Page',
-            tags: ['HTML', 'CSS']
-          },
-          {
-            name: 'Github Page',
-            description: 'Using HTML and Tailwind build a clone of Github web page.',
-            img: `url('images/github-tailwind.png')`,
-            demo: 'https://benbinbin.github.io/github-tailwind/',
-            source: 'https://github.com/Benbinbin/github-tailwind',
-            tags: ['Tailwind']
-          },
-          {
-            name: 'Food Recipes',
-            description: 'Using HTML and Tailwind build a responsive web page.',
-            img: `url('images/food-tailwind.png')`,
-            demo: 'https://benbinbin.github.io/github-tailwind/',
-            source: 'https://github.com/Benbinbin/github-tailwind',
-            tags: ['Tailwind']
-          },
-          {
-            name: 'Digital Market',
-            description: 'E-commerce website power by Bootstrap.',
-            img: `url('images/digita-market.png')`,
-            demo: 'https://benbinbin.github.io/DigitalMarket/',
-            source: 'https://github.com/Benbinbin/DigitalMarket',
-            tags: ['Bootstrap']
-          },
-          {
-            name: 'Sweetaste',
-            description: 'A dessert shop website power by Bootstrap.',
-            img: `url('images/sweetaste.png')`,
-            demo: 'https://benbinbin.github.io/Dessert-shop/',
-            source: 'https://github.com/Benbinbin/Dessert-shop',
-            tags: ['Bootstrap', 'Scss']
-          },
-          {
-            name: 'Dashboard',
-            description: 'A dashboard power by Vue.js.',
-            img: `url('images/dashboard-vue.png')`,
-            demo: 'https://benbinbin.github.io/dashboard-vue',
-            source: 'https://github.com/Benbinbin/dashboard-vue',
-            tags: ['Vue.js']
-          },
-          {
-            name: 'Todo App',
-            description: 'Todo app power by Vue.js.',
-            img: `url('images/todos-vue-js.png')`,
-            demo: 'https://benbinbin.github.io/Todo-Demo-Vue/',
-            source: 'https://github.com/Benbinbin/Todo-Demo-Vue',
-            tags: ['Vue.js']
-          },
-          {
-            name: 'Kitten Pictures',
-            description: 'A Chrome Extension to change the images on web page to cute kitten pictures by one click.',
-            img: `url('images/kitten-pictures.png')`,
-            source: 'https://github.com/Benbinbin/Kitten-Pictures',
-            tags: ['Chrome Extension']
-          },
-          {
-            name: 'Frogger Game',
-            description: 'A classic arcade game.',
-            img: `url('images/frogger.png')`,
-            demo: 'https://benbinbin.github.io/frontend-nanodegree-arcade-game/',
-            source: 'https://github.com/Benbinbin/frontend-nanodegree-arcade-game',
-            tags: ['JavaScript']
-          },
-          {
-            name: 'Matching Game',
-            description: 'Card matching game also called Concentration.',
-            img: `url('images/matching-game.png')`,
-            demo: 'https://benbinbin.github.io/memory-game/',
-            source: 'https://github.com/Benbinbin/memory-game',
-            tags: ['JavaScript']
-          },
-        ]
-      },
-      {
-        type: 'data-vis',
-        exercises: [
-          {
-            name: 'Line Chart',
-            description: 'Visualize the personal consumption data.',
-            img: `url('images/line-chart-echarts.png')`,
-            demo: 'https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project09_line_chart/index.html',
-            source: 'https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project09_line_chart',
-            tags: ['ECharts']
-          },
-          {
-            name: 'Calendar Chart',
-            description: 'Visualize the health data.',
-            img: `url('images/keep-fit-echarts.png')`,
-            demo: 'https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project10_calendar_chart/index.html',
-            source: 'https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project10_calendar_chart',
-            tags: ['ECharts']
-          },
-          {
-            name: 'Candlestick Chart',
-            description: 'Visualize the stock data and simulate asynchronous data loading.',
-            img: `url('images/candlestick-chart-echarts.png')`,
-            demo: 'https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project11_candlestick_chart/index.html',
-            source: 'https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project11_candlestick_chart',
-            tags: ['ECharts']
-          },
-          {
-            name: 'Company Staff Relationship Visualization',
-            description: 'Visualize the company employees hierarchy.',
-            img: `url('images/staff-relationship-echarts.png')`,
-            demo: 'https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project18_19_tree_and_treemap/index.html',
-            source: 'https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project18_19_tree_and_treemap',
-            tags: ['ECharts']
-          },
-          {
-            name: 'Delivery Route Dynamic Visualization',
-            description: 'Visualize the takeaway routes data.',
-            img: `url('images/takeout-route-echarts.png')`,
-            demo: 'https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project13_takeout_route/index.html',
-            source: 'https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project13_takeout_route',
-            tags: ['ECharts']
-          },
-          {
-            name: 'Investment Relationship OD Line Map',
-            description: 'Visualize the investment relationship between cities in China.',
-            img: `url('images/cities-investment-echarts.png')`,
-            demo: 'https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project14_investment/index.html',
-            source: 'https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project14_investment',
-            tags: ['ECharts']
-          },
-          {
-            name: 'Urban Population Data Monitor',
-            description: 'Visualize urban crowd data over time and show it as 3D bar with WebGL technology.',
-            img: `url('images/urban-crowd-echarts-gl.png')`,
-            demo: 'https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project15_urban_crowd_monitor/',
-            source: 'https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project15_urban_crowd_monitor',
-            tags: ['ECharts-GL']
-          },
-          {
-            name: 'Smart City',
-            description: 'Visualize the data about the West Lake (in Hangzhou) with WebGL technology and combine multiple charts.',
-            img: `url('images/smart-city-echarts-gl.png')`,
-            demo: 'https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project16_smart_city/index.html',
-            source: 'https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project16_smart_city',
-            tags: ['ECharts-GL']
-          },
-          {
-            name: 'Film Flowers',
-            description: 'Using D3.js to visualize the movies data.',
-            img: `url('images/film-flowers.png')`,
-            demo: 'https://benbinbin.github.io/film-flowers-d3/',
-            source: 'https://github.com/Benbinbin/film-flowers-d3',
-            tags: ['D3.js']
-          },
-        ]
-      }
-    ]
+  <footer id="contact" class="bg-gray-200 px-4 py-10">
+    <div class="container mx-auto flex justify-between">
+      <div class="d-flex flex-column justify-content-start">
+        <a class="flex p-2 items-center space-x-2 hover:bg-gray-300 rounded-md" href="mailto:benthomsonbin@gmail.com">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -5 24 24" class="w-5 h-5" fill="currentColor"
+            preserveAspectRatio="xMinYMin" class="icon__icon">
+            <path
+              d="M18.572.083L10.676 7.12a1 1 0 0 1-1.331 0L1.416.087A2 2 0 0 1 2 0h16a2 2 0 0 1 .572.083zm1.356 1.385c.047.17.072.348.072.532v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2c0-.185.025-.364.072-.534l7.942 7.148a3 3 0 0 0 3.992 0l7.922-7.146z">
+            </path>
+          </svg>
+          <span class="hidden sm:block font-bold text-sm">benthomsonbin@gmail.com</span>
+        </a>
+      </div>
+      <div class="flex items-center space-x-2">
+        <a v-for="medium of social_media" :key="medium.name" class="p-2 hover:bg-gray-300 rounded-md" :href="medium.url"
+          target="_blank" :title="medium.name">
+          <img class="w-5 h-5" :src="medium.logo" :alt="medium.name">
+        </a>
+      </div>
+  </footer>
 
-    new Vue({
-      el: '#main',
-      data: {
-        contents: contents
+  <script>
+    const app = {
+      data() {
+        return {
+          exercises: [
+            {
+              type: 'Front-End',
+              content: [
+                {
+                  name: 'Canvas Editor',
+                  description: 'An image editor power by Canvas-2D.',
+                  demo: 'https://github.com/Benbinbin/canvas-editor',
+                  source: 'https://benbinbin.github.io/canvas-editor/',
+                  tags: ['Vue.js', 'Canvas']
+                },
+                {
+                  name: 'OCR-MapDown',
+                  description: 'An ocr application of MapDown Web App.',
+                  demo: 'https://github.com/Benbinbin/OCR-MapDown',
+                  source: 'https://benbinbin.github.io/OCR-MapDown/',
+                  tags: ['Vue.js', 'Canvas', 'OCR']
+                },
+                {
+                  name: 'Apple Home Page',
+                  description: 'Using HTML and CSS build a clone of Apple Home page.',
+                  demo: 'https://benbinbin.github.io/Apple-Page/',
+                  source: 'https://github.com/Benbinbin/Apple-Page',
+                  tags: []
+                },
+                {
+                  name: 'Github Page',
+                  description: 'Using HTML and Tailwind build a clone of Github web page.',
+                  demo: 'https://benbinbin.github.io/github-tailwind/',
+                  source: 'https://github.com/Benbinbin/github-tailwind',
+                  tags: ['Tailwind']
+                },
+                {
+                  name: 'Food Recipes',
+                  description: 'Using HTML and Tailwind build a responsive web page.',
+                  demo: 'https://benbinbin.github.io/github-tailwind/',
+                  source: 'https://github.com/Benbinbin/github-tailwind',
+                  tags: ['Tailwind']
+                },
+                {
+                  name: 'Digital Market',
+                  description: 'E-commerce website power by Bootstrap.',
+                  demo: 'https://benbinbin.github.io/DigitalMarket/',
+                  source: 'https://github.com/Benbinbin/DigitalMarket',
+                  tags: ['Bootstrap']
+                },
+                {
+                  name: 'Sweetaste',
+                  description: 'A dessert shop website power by Bootstrap.',
+                  demo: 'https://benbinbin.github.io/Dessert-shop/',
+                  source: 'https://github.com/Benbinbin/Dessert-shop',
+                  tags: ['Bootstrap']
+                },
+                {
+                  name: 'Dashboard',
+                  description: 'A dashboard power by Vue.js.',
+                  demo: 'https://benbinbin.github.io/dashboard-vue',
+                  source: 'https://github.com/Benbinbin/dashboard-vue',
+                  tags: ['Vue.js']
+                },
+                {
+                  name: 'Todo App',
+                  description: 'Todo app power by Vue.js.',
+                  demo: 'https://benbinbin.github.io/Todo-Demo-Vue/',
+                  source: 'https://github.com/Benbinbin/Todo-Demo-Vue',
+                  tags: ['Vue.js']
+                },
+                {
+                  name: 'Kitten Pictures',
+                  description: 'A Chrome Extension to change the images on web page to cute kitten pictures by one click.',
+                  source: 'https://github.com/Benbinbin/Kitten-Pictures',
+                  tags: ['Chrome Extension']
+                },
+                {
+                  name: 'Frogger Game',
+                  description: 'A classic arcade game.',
+                  demo: 'https://benbinbin.github.io/frontend-nanodegree-arcade-game/',
+                  source: 'https://github.com/Benbinbin/frontend-nanodegree-arcade-game',
+                  tags: []
+                },
+                {
+                  name: 'Matching Game',
+                  description: 'Card matching game also called Concentration.',
+                  demo: 'https://benbinbin.github.io/memory-game/',
+                  source: 'https://github.com/Benbinbin/memory-game',
+                  tags: []
+                },
+              ]
+            },
+            {
+              type: 'Data-Vis',
+              content: [
+                {
+                  name: 'Line Chart',
+                  description: 'Visualize the personal consumption data.',
+                  img: `url('images/line-chart-echarts.png')`,
+                  demo: 'https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project09_line_chart/index.html',
+                  source: 'https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project09_line_chart',
+                  tags: ['ECharts']
+                },
+                {
+                  name: 'Calendar Chart',
+                  description: 'Visualize the health data.',
+                  img: `url('images/keep-fit-echarts.png')`,
+                  demo: 'https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project10_calendar_chart/index.html',
+                  source: 'https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project10_calendar_chart',
+                  tags: ['ECharts']
+                },
+                {
+                  name: 'Candlestick Chart',
+                  description: 'Visualize the stock data and simulate asynchronous data loading.',
+                  img: `url('images/candlestick-chart-echarts.png')`,
+                  demo: 'https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project11_candlestick_chart/index.html',
+                  source: 'https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project11_candlestick_chart',
+                  tags: ['ECharts']
+                },
+                {
+                  name: 'Company Staff Relationship Visualization',
+                  description: 'Visualize the company employees hierarchy.',
+                  img: `url('images/staff-relationship-echarts.png')`,
+                  demo: 'https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project18_19_tree_and_treemap/index.html',
+                  source: 'https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project18_19_tree_and_treemap',
+                  tags: ['ECharts']
+                },
+                {
+                  name: 'Delivery Route Dynamic Visualization',
+                  description: 'Visualize the takeaway routes data.',
+                  img: `url('images/takeout-route-echarts.png')`,
+                  demo: 'https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project13_takeout_route/index.html',
+                  source: 'https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project13_takeout_route',
+                  tags: ['ECharts']
+                },
+                {
+                  name: 'Investment Relationship OD Line Map',
+                  description: 'Visualize the investment relationship between cities in China.',
+                  img: `url('images/cities-investment-echarts.png')`,
+                  demo: 'https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project14_investment/index.html',
+                  source: 'https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project14_investment',
+                  tags: ['ECharts']
+                },
+                {
+                  name: 'Urban Population Data Monitor',
+                  description: 'Visualize urban crowd data over time and show it as 3D bar with WebGL technology.',
+                  img: `url('images/urban-crowd-echarts-gl.png')`,
+                  demo: 'https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project15_urban_crowd_monitor/',
+                  source: 'https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project15_urban_crowd_monitor',
+                  tags: ['ECharts-GL']
+                },
+                {
+                  name: 'Smart City',
+                  description: 'Visualize the data about the West Lake (in Hangzhou) with WebGL technology and combine multiple charts.',
+                  img: `url('images/smart-city-echarts-gl.png')`,
+                  demo: 'https://benbinbin.github.io/Echarts-Learning/Echarts-Projects/project16_smart_city/index.html',
+                  source: 'https://github.com/Benbinbin/Echarts-Learning/tree/master/Echarts-Projects/project16_smart_city',
+                  tags: ['ECharts-GL']
+                },
+                {
+                  name: 'Film Flowers',
+                  description: 'Using D3.js to visualize the movies data.',
+                  img: `url('images/film-flowers.png')`,
+                  demo: 'https://benbinbin.github.io/film-flowers-d3/',
+                  source: 'https://github.com/Benbinbin/film-flowers-d3',
+                  tags: ['D3.js']
+                },
+              ]
+            }
+          ],
+          social_media: [
+            {
+              name: 'github',
+              logo: './images/icons/github.svg',
+              url: 'https://github.com/Benbinbin'
+            },
+            {
+              name: 'twitter',
+              logo: './images/icons/twitter.svg',
+              url: 'https://twitter.com/Benbinbin_fun'
+            },
+            {
+              name: 'weibo',
+              logo: './images/icons/weibo.svg',
+              url: 'https://weibo.com/binbindesign'
+            }
+          ]
+        }
+      },
+      methods: {
+        tagColor(tag) {
+          const tagsMap = {
+            'Vue.js': '#42b983',
+            'Tailwind': '#06B6D4',
+            'Bootstrap': '#7711F6',
+            'D3.js': '#F37255',
+            'ECharts': '#E43961',
+            'ECharts-GL': '#E43961',
+          }
+          if (tag in tagsMap) {
+            return tagsMap[tag]
+          } else {
+            return '#9CA3AF'
+          }
+        }
       }
-    })
+    }
+    Vue.createApp(app).mount('#app')
   </script>
 </body>
 
